@@ -1,0 +1,60 @@
+CREATE DATABASE bank;
+use bank;
+
+CREATE TABLE branch(bname VARCHAR(25) PRIMARY KEY,
+					city VARCHAR(25) NOT NULL, CHECK(city LIKE "NAGPUR" OR city LIKE "DELHI" OR city LIKE "BANGALORE" OR city LIKE "BOMBAY"));
+CREATE TABLE customer(cname VARCHAR(25) PRIMARY KEY, city VARCHAR(25) NOT NULL);
+CREATE TABLE deposit(actno VARCHAR(25) PRIMARY KEY, CHECK(actno LIKE "D%"),
+					cname VARCHAR(25), FOREIGN KEY(cname) REFERENCES customer(cname),
+					bname VARCHAR(25), FOREIGN KEY(bname) REFERENCES branch(bname),
+					amount INT NOT NULL, CHECK(amount > 0),
+					adate DATE);
+CREATE TABLE borrow(loanno VARCHAR(25) PRIMARY KEY, CHECK(loanno LIKE "L%"),
+					cname VARCHAR(25), FOREIGN KEY(cname) REFERENCES customer(cname),
+					bname VARCHAR(25), FOREIGN KEY(bname) REFERENCES branch(bname),
+					amount INT NOT NULL, CHECK(amount > 0));
+                    
+INSERT INTO branch VALUES 
+					("VRCE", "NAGPUR"),
+					("AJNI", "NAGPUR"),
+					("KAROLBAGH", "DELHI"),
+					("CHANDNI", "DELHI"),
+					("DHARAMPETH", "NAGPUR"),
+					("MG ROAD", "BANGALORE");
+INSERT INTO branch VALUES
+					("ANDHERI", "BOMBAY"),
+					("NEHRU PALACE", "DELHI"),
+					("POWAI", "BOMBAY");
+                    
+INSERT INTO customer VALUES
+					("ANIL", "CALCUTTA"),
+					("SUNIL", "DELHI"),
+					("MEHUL", "BARODA"),
+					("MANDAR", "PATNA"),
+					("MADHURI", "NAGPUR"),
+					("PRAMOD", "NAGPUR"),
+					("SANDIP", "SURAT"),
+					("SHIVANI", "BOMBAY"),
+					("KRANTI", "BOMBAY"),
+					("NAREN", "BOMBAY");
+                    
+INSERT INTO deposit VALUES("D100", "ANIL", "VRCE", 1000.00, "1995-03-01");
+INSERT INTO deposit VALUES("D101", "SUNIL", "AJNI", 500.00, "1996-01-04");
+INSERT INTO deposit VALUES("D102", "MEHUL", "KAROLBAGH", 3500.00, "1995-11-17");
+INSERT INTO deposit VALUES("D104", "MADHURI", "CHANDNI", 1200.00, "1995-12-17");
+INSERT INTO deposit VALUES("D105", "PRAMOD", "MG ROAD", 3000.00, "1996-03-27");
+INSERT INTo deposit VALUES("D107", "SHIVANI", "VRCE", 1000.00,"1995-09-05"); 
+INSERT INTO deposit VALUES("D108", "KRANTI", "NEHRU PALACE", 5000.00, "1995-07-02");
+INSERT INTO deposit VALUES("D109", "SANDIP", "POWAI", 7000.00, "1995-08-10");
+
+INSERT INTO borrow VALUES("L201", "ANIL", "VRCE", 1000.00);
+INSERT INTO borrow VALUES("L206", "MEHUL", "AJNI", 5000.00);
+INSERT INTO borrow VALUES("L311", "SUNIL", "DHARAMPETH", 3000.00);
+INSERT INTO borrow VALUES("L321", "MADHURI", "ANDHERI", 2000.00);
+INSERT INTO borrow VALUES("L371", "PRAMOD", "VRCE", 8000.00);
+INSERT INTO borrow VALUES("L481", "KRANTI", "NEHRU PALACE", 3000.00);
+
+SELECT * FROM branch;
+SELECT * FROM customer;
+SELECT * FROM deposit;
+SELECT * FROM borrow;
