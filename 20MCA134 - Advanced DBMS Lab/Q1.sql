@@ -42,7 +42,11 @@ INSERT INTO customer VALUES ("PRANAV", "Delhi");
 INSERT INTO customer VALUES ("SARATH", "NAGPUR");
 INSERT INTO customer VALUES ("MOHAN", "NAGPUR");
 INSERT INTO customer VALUES ("HILAL", "NAGPUR");
-                    
+INSERT INTO customer VALUES ("TOMS C JOSE", "CALCUTTA");
+INSERT INTO customer VALUES ("Ashiq", "CALCUTTA");
+
+INSERT INTO deposit VALUES("D909", "Ashiq", "VRCE", 500.00, "1995-03-12");                    
+INSERT INTO deposit VALUES("D110", "TOMS C JOSE", "VRCE", 800.00, "1998-05-11");                    
 INSERT INTO deposit VALUES("D100", "ANIL", "VRCE", 1000.00, "1995-03-01");
 INSERT INTO deposit VALUES("D101", "SUNIL", "AJNI", 500.00, "1996-01-04");
 INSERT INTO deposit VALUES("D102", "MEHUL", "KAROLBAGH", 3500.00, "1995-11-17");
