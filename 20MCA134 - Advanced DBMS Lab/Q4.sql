@@ -15,7 +15,9 @@ SELECT SUM(deposit.amount) AS Maximum_Amount FROM deposit INNER JOIN customer
 SELECT city, COUNT(bname) AS "No_Of_Branche's" FROM branch GROUP BY (city);
 SELECT city, COUNT(cname) AS "No_Of_Customer's" FROM customer GROUP BY (city);
 SELECT bname AS Branch_Name, SUM(amount) AS DEPOSIT FROM deposit GROUP BY (bname);
-#SELECT B.city ,D.bname AS BRANCH, SUM(D.amount) AS DEPOSIT FROM deposit D, branch B GROUP BY D.bname;
+SELECT branch.city AS CITY, branch.bname AS BRANCH, SUM(deposit.amount) AS DEPOSIT FROM branch INNER JOIN deposit ON deposit.bname=branch.bname GROUP BY deposit.bname;
 SELECT bname AS BRANCH, SUM(amount) AS LOAN FROM borrow GROUP BY bname;
 SELECT COUNT(cname) AS TOTAL_CUSTOMERS FROM customer;
-SELECT bname AS BRANCH, COUNT(cname) FROM customer GROUP BY bname;
+SELECT bname AS BRANCH, COUNT(cname) FROM deposit GROUP BY bname;
+SELECT MAX(amount) AS MAXIMUM_LOAN_VRCE FROM borrow WHERE bname LIKE "VRCE";
+SELECT deposit.cname AS CUSTOMERS FROM deposit INNER JOIN borrow ON borrow.cname = deposit.cname;
