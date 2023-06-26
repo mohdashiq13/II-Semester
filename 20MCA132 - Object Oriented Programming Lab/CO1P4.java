@@ -1,5 +1,15 @@
 import java.util.Scanner;
 public class CO1P4{
+	public static int compare(int x[][],int y[][], int a, int b){
+		for(int i=0; i<a; i++){
+			for(int j=0; j<b; j++){
+				if(x[i][j] != y[i][j]){
+					return 0;
+				}
+			}
+		}
+		return 1;
+	}
 	public static void main(String []args){
 		Scanner sc = new Scanner(System.in);
 		int rows, cols;
@@ -26,13 +36,9 @@ public class CO1P4{
 			}
 			System.out.println();
 		}
-		for(int i=0; i<rows; i++){
-			for(int j=0; j<cols; j++){
-				if(mat1[i][j] != mat2[i][j]){
-					System.out.println("The matrix is not transpose");
-					break;
-				}
-			}	
-		}
+		if(compare(mat1,mat2,rows,cols) == 0)
+			System.out.println("Matrix is Not Symmetric");
+		else 
+			System.out.println("Matrix is Symmetric");
 	}
 }
