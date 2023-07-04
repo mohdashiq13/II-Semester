@@ -1,0 +1,33 @@
+/*Develop a program that has a Choice component which contains the names of shapes such
+as rectangle, triangle, square and circle. Draw the corresponding shapes for given
+parameters as per user’s choice.*/
+import java.awt.event.*;
+import java.awt.*;
+
+public class CO5P6 extends Frame{
+	Choice c;
+	
+	CO5P6(){
+		c = new Choice();
+		c.add("Rectangle");
+		c.add("Circle");
+		c.add("Square");
+		c.add("Triangle");
+		c.addItemListener(this);
+		add(c);
+		addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				dispose();
+			}
+		});
+		setSize(400,400);
+		setVisible(true);
+	}
+	public void itemStateChanged(ActionEvent e){
+		Label l = new Label();
+		l.setText(c.getItem(c.getSelectedIndex()));
+	}
+	public static void main(String []args){
+		new CO5P6();
+	}
+}
