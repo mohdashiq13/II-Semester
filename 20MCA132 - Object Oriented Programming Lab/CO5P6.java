@@ -4,12 +4,8 @@ import java.awt.Graphics;
 
 public class CO5P6 extends Frame implements ItemListener{
 	Choice ch;
-	//Label la;
 	int item;
 	CO5P6(){
-		//la = new Label();
-		//la.setBounds(10,10,40,50);
-		//la.setSize(100,100);
 		ch = new Choice();
 		ch.add("Select");
 		ch.add("Rectangle");
@@ -18,7 +14,6 @@ public class CO5P6 extends Frame implements ItemListener{
 		ch.add("Triangle");
 		ch.addItemListener(this);
 		add(ch);
-		//add(la,"North");
 		addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent e){
 				dispose();
