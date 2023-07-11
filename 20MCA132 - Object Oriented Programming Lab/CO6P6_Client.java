@@ -13,10 +13,10 @@ public class CO6P6_Client{
 		byte buff[] = null;
 		while(true){
 			String chat = sc.next();
-			buff = chat.getBytes(); //Converting inputed chat to Bytes
+			buff = chat.getBytes(); // Converting inputed chat to Bytes
 			System.out.println(buff);
-										  //DatagramPacket(Bytes, Byte Length, Host IP, Port Num); Setting up the Packet to be Send
-			DatagramPacket packetSend = new DatagramPacket(buff, buff.length, ip, 530);
+			                              //DatagramPacket(Bytes, Byte Length, Host IP, Port Num); Setting up the Packet to be Send
+			DatagramPacket packetSend = new DatagramPacket(buff, buff.length, ip, 1234);
 			dataSocket.send(packetSend); // Sending the Packet
 			
 			if(chat.equals("bye"))
