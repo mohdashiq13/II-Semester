@@ -1,11 +1,6 @@
-// Java program to illustrate Server side
-// Implementation using DatagramSocket
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-
 public class CO6P6_Server
 {
 	public static void main(String[] args) throws IOException
@@ -13,11 +8,9 @@ public class CO6P6_Server
 		// Step 1 : Create a socket to listen at port 1234
 		DatagramSocket ds = new DatagramSocket(1234);
 		byte[] receive = new byte[65535];
-
 		DatagramPacket DpReceive = null;
 		while (true)
 		{
-
 			// Step 2 : create a DatgramPacket to receive the data.
 			DpReceive = new DatagramPacket(receive, receive.length);
 
@@ -37,7 +30,6 @@ public class CO6P6_Server
 			receive = new byte[65535];
 		}
 	}
-
 	// A utility method to convert the byte array
 	// data into a string representation.
 	public static StringBuilder data(byte[] a)
